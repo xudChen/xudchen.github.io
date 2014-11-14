@@ -1,0 +1,124 @@
+<!DOCTYPE html> <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]--> 
+<html class="no-js" lang="en" >
+	<head>
+	 <meta charset="utf-8">
+	 <!-- If you delete this meta tag World War Z will become a reality -->
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <title></title> 
+	 <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like --> 
+	 <link rel="stylesheet" href="lib/css/normalize.css"> 
+	 <link rel="stylesheet" href="lib/css/foundation.css"> 
+	 <!-- If you are using the gem version, you need this only --> 
+<!-- 	 <link rel="stylesheet" href="css/app.css">  -->
+	 <style type="text/css">
+		 .row_top {
+/* 			 margin-top:0.5rem; */
+		 }
+		 
+		 .new_panel{
+			 margin-bottom: 0.5rem;
+			 padding: 0.5rem;
+		 }
+		 
+		 .p_center{
+			 text-align: center;
+		 }
+		 
+	 </style>
+	 <script src="lib/js/vendor/modernizr.js"></script> 
+	 </head> 
+	 <body> 
+	 <!-- body content here -->
+	 	
+      <div class="row row_top">
+
+        <div class="large-4 small-4 columns">
+          <img id="rgblight" src="images/app.gif">
+
+          <div class="panel new_panel">
+            <p class="p_center">调光灯</p>
+          </div>
+        </div>
+        
+        <div class="large-4 small-4 columns">
+          <img id="temperature" src="images/app.gif">
+
+          <div class="panel new_panel">
+            <p class="p_center">温度计</p>
+          </div>
+        </div>
+
+        <div class="large-4 small-4 columns">
+          <img id="buzzer" src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">蜂鸣器</p>
+          </div>
+        </div>
+
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+        <div class="large-4 small-4 columns">
+          <img src="http://placehold.it/500x500&text=Thumbnail">
+
+          <div class="panel new_panel">
+            <p class="p_center">Item Name</p>
+          </div>
+        </div>
+        
+      </div>
+	    
+	  <script src="lib/js/vendor/jquery.js"></script> 
+	  <script src="lib/js/foundation.min.js"></script> 
+	  <script type="text/javascript">
+	  	  
+		  $(function(){
+			$('#rgblight').click(function(){
+				window.location.href = "rgblight/index.html";
+			});
+			$('#temperature').click(function(){
+				window.location.href = "temperature/index.html";
+			});	
+			$('#buzzer').click(function(){
+				window.location.href = "buzzer/index.html";
+			});			  
+		  });
+	  </script>
+	</body> 
+</html>
