@@ -1,3 +1,6 @@
+	var url ='http://localService';
+  	
+	
 	function init(){
 	  var windowWidth = window.innerWidth;
 	  var windowHeight = window.innerHeight;	  	  	
@@ -63,9 +66,14 @@
   
   function selectDevice(callback){
   	init();
+  
+  	if(_temp_test_){
+	  	url = 'http://192.168.1.108:8080/server';
+  	}
+  	
   	$.ajax({
 		async: true,
-		url: "http://192.168.1.108:8080/server",
+		url: url,
 		type: "get",
 		dataType: "jsonp",
 		jsonp: "callback",

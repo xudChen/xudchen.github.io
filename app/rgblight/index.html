@@ -71,6 +71,7 @@
 						 
 			<div class="controls">
 			<a href="#" id="selectDevice" class="button [radius round]">SelectDevice</a>
+			<a href="#" id="test" class="button [radius small round]">simulation test</a>
 				<div><label>R</label> <input type="text" id="rVal" /></div>
 				<div><label>G</label> <input type="text" id="gVal" /></div>
 				<div><label>B</label> <input type="text" id="bVal" /></div>
@@ -85,12 +86,16 @@
 	  <script type="text/javascript">
 	 	$(function(){
 /* 	 	alert(window.innerWidth); */
-		
+			
 			$('#selectDevice').click(function(){
 	  			selectDevice(function(data){
 /* 			  			$('#deviceAddress').html(DEVICEADDRESS); */
 		  		});
 	  		})
+
+	  		$('#test').click(function(){
+			  	_temp_test_ = true;
+		  	});
 
 
 	 		$('.colorpicker').css('width',window.innerWidth);
@@ -152,7 +157,7 @@
 		        if(!(typeof DEVICEADDRESS=='undefined')){
 						$.ajax({
 							async: true,
-							url: "http://192.168.1.108:8080/server",
+							url: url,
 							type: "get",
 							dataType: "jsonp",
 							jsonp: "callback",
@@ -185,7 +190,6 @@
 			  			
 				  		alert('please select the device first!');
 			  		}
-		        
 		    }); 
 		});
 

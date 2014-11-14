@@ -18,6 +18,7 @@
 	<body>
 		<a href="#" id="refresh" class="button [radius round]">Refresh</a>
 		<a href="#" id="selectDevice" class="button [radius round]">SelectDevice</a>
+		<a href="#" id="test" class="button [radius small round]">simulation test</a>
 	    <div id="centered">
 	        <!--add this line to the html where you want the thermometer-->
     		<div id="goal-thermometer"></div>
@@ -38,13 +39,17 @@
 			  		});
 		  		});
 		  		
+		  		$('#test').click(function(){
+			  		_temp_test_ = true;
+		  		});
+		  		
 		  		$('#refresh').click(function(){
 			  		if(!isRefresh &&  !(typeof DEVICEADDRESS=='undefined')){
 				  		isRefresh = true;
 				  		var refreshInterval =  setInterval(function(){
 					  		$.ajax({
 								async: true,
-								url: "http://192.168.1.108:8080/server",
+								url: url,
 								type: "get",
 								dataType: "jsonp",
 								jsonp: "callback",

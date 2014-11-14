@@ -19,6 +19,7 @@
 	 <!-- body content here -->
 	 <div>
 	  <a href="#" id="selectDevice" class="button [radius round]">SelectDevice</a>
+	  <a href="#" id="test" class="button [radius small round]">simulation test</a>
 	  <p id="deviceAddress"></p>
 	  <a href="#" id="beep" class="button [radius round]" style ="display:block;margin:20% auto;width:150px;">Beep</a>
 	 </div>
@@ -35,6 +36,10 @@
 				  		$('#deviceAddress').html(DEVICEADDRESS);
 			  		});
 		  		})
+		  		$('#test').click(function(){
+			  		_temp_test_ = true;
+		  		});
+
 		  		
 		  		$('#beep').click(function(){
 /* 		  			alert(typeof DEVICEADDRESS == 'undefined') */
@@ -43,7 +48,7 @@
 			  			var beepInterval = setInterval(function(){
 							$.ajax({
 								async: true,
-								url: "http://192.168.1.108:8080/server",
+								url: url,
 								type: "get",
 								dataType: "jsonp",
 								jsonp: "callback",
