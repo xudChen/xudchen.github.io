@@ -60,17 +60,17 @@
 			    width: 30px;
 			}	
 	 </style>
-	 <script src="lib/js/vendor/modernizr.js"></script> 
+	 <script src="../lib/js/vendor/modernizr.js"></script> 
 	 </head> 
 	 <body> 
 	 <!-- body content here -->
-	 	
       <div>		 
 		<!-- colorpicker element -->
 		<div class="colorpicker">
 			<canvas id="picker" var="1" width="300" height="300"></canvas>
-			 
+						 
 			<div class="controls">
+			<a href="#" id="selectDevice" class="button [radius round]">SelectDevice</a>
 				<div><label>R</label> <input type="text" id="rVal" /></div>
 				<div><label>G</label> <input type="text" id="gVal" /></div>
 				<div><label>B</label> <input type="text" id="bVal" /></div>
@@ -80,10 +80,19 @@
 		</div>
 	  </div>	    
 	  <script src="../lib/js/vendor/jquery.js"></script>
-	  <script src="../lib/js/foundation.min.js"></script> 
+	  <script src="../lib/js/foundation.min.js"></script>
+	  <script src="../js/selectDevice.js"></script> 
 	  <script type="text/javascript">
 	 	$(function(){
 /* 	 	alert(window.innerWidth); */
+		
+			$('#selectDevice').click(function(){
+	  			selectDevice(function(data){
+/* 			  			$('#deviceAddress').html(DEVICEADDRESS); */
+		  		});
+	  		})
+
+
 	 		$('.colorpicker').css('width',window.innerWidth);
 	 		$('.colorpicker').css('height',window.innerHeight);
 /*
@@ -139,6 +148,44 @@
 		    $('#picker').click(function(e) { // click event handler
 		    	e.preventDefault();
 		        bCanPreview = !bCanPreview;
+		        
+		        if(!(typeof DEVICEADDRESS=='undefined')){
+						$.ajax({
+							async: true,
+							url: "http://192.168.1.108:8080/server",
+							type: "get",
+							dataType: "jsonp",
+							jsonp: "callback",
+							data: {
+								"key" : "1234",
+								
+								"address" : DEVICEADDRESS,
+								
+								"resource" : "/peripherals/rgblight",
+								
+								"operation" : "write",
+								
+								"value" : $('#hexVal').val()
+							},
+					
+							beforeSend: function() {
+			
+							},
+							success: function(data) {
+								alert('data  '+JSON.stringify(data));
+							},
+							complete: function(request, textStatus) {
+								console.log('textStatus '+textStatus);
+							},
+							error: function(error) {
+								console.log('errorCode '+JSON.stringify(error));
+							}
+						});
+			  		}else{
+			  			
+				  		alert('please select the device first!');
+			  		}
+		        
 		    }); 
 		});
 
